@@ -1,0 +1,147 @@
+html{
+        font-size : 18px;
+}
+.title{
+      text-align: center; 
+      color: black;
+      font-size: 3rem; 
+      font-family: 'Inter', sans-serif; 
+      font-weight: 600; 
+      letter-spacing: -2px;
+      background: rgba(255, 255, 255, 0.2); 
+      padding: 10px;
+      position : fixed;
+      top : 0;
+      margin : 0;
+      left : 0;
+      width : 100vw;
+      margin-bottom : 0px;
+}
+.text{
+        padding : 15px;
+        font-family: 'Inter', sans-serif; 
+        color: black;
+        letter-spacing: -0.6px;
+        font-size : 1.4rem;
+        text-align: center;
+        width: 100%;
+}
+.clicks,.inputs{
+        padding : 15px;
+        font-family: 'Inter', sans-serif;
+        font-size : 0.8rem;
+        border-radius: 15px;
+        border : 2px solid black;
+        margin: 10px 0;
+        background: rgba(255, 255, 255, 0.2);
+        text-align : center;
+        cursor: text;
+        width : 350px;
+}
+
+.inputs{
+        overflow-x : auto;
+        height : 150px;
+
+}
+.inputs:focus{
+        outline : none;
+        background : rgba(255, 255, 255, 0.4);
+        transition: transform 0.3s ease;
+        transform: scale(1.1);
+}
+
+.clicks:hover{
+        transition: transform 0.3s ease;
+        transform: scale(1.1);
+}
+
+.bg{
+       height : 100vw;
+       width : 100vw;
+       background-image : url(letter-drawn-sky.jpg);
+       margin-left : 0;
+       margin-top : 0;
+       top : 0;
+       left : 0;
+       position : fixed;
+       background-repeat : no-repeat;
+       background-size : cover;
+       background-position : center;
+       display : flex;
+       flex-direction : row;
+
+}
+
+.s1,.s2{
+        width : 45vw;
+        height : 73vh;
+        margin-left : 40px;
+        margin-top: 150px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(30px);    
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+.s2{
+        width : 45vw;
+        margin-left : 40px;
+        margin-top: 150px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(30px);    
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;    
+        overflow-x : auto;
+        height: 73vh; /* Adjust the height to occupy almost all vertical space */
+}
+.clicks:hover{
+        background : rgba(255, 255, 255, 0.4);
+        cursor : pointer;
+        width : 85%;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(30px);
+  font-size: 2rem;
+  font-family: 'Inter', sans-serif;
+  color: black;
+}
+
+.loader::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0,0,0,0.2);
+  border-top: 4px solid black;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#output {
+    flex-grow: 1; /* Allow the output div to grow and take up remaining vertical space */
+    width: 90%; /* Adjust width if needed */
+    height: auto; /* Let the height adjust dynamically */
+    overflow-y: auto; /* Add vertical scrolling if content overflows */
+}
