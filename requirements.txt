@@ -54,7 +54,6 @@ kubernetes==35.0.0
 langchain==1.2.6
 langchain-classic==1.0.1
 langchain-community==0.4.1
-langchain-core==1.2.7
 langchain-groq==1.1.1
 langchain-text-splitters==1.1.0
 langchain-writer==0.3.5
