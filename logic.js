@@ -14,7 +14,7 @@ async function output()
 
 
     x.innerText = 'Generating Email...';
-    const response = await fetch('https://backendemail-vl1a.onrender.com/generate_email',{method : "POST" , body : formData} );
+    const response = await fetch('https://backendemail-vl1a.onrender.com/generate-email',{method : "POST" , body : formData} );
     if (!response.ok) {
     const err = await response.json();
     console.log(err);
