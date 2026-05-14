@@ -127,12 +127,12 @@ def generate_email(website_url: str, resume_text: str) -> str:
     """)
     website_text = extract_website_data(website_url)
     if not is_valid_resume(resume_text) and is_valid_website(website_text):
-        result = 'Resume is invalid or not uploaded. Please upload a valid resume.'
+        result = 'Resume is invalid or not uploaded. Please upload a valid resume and try again.'
     
     elif not is_valid_website(website_text) and is_valid_resume(resume_text):
-        result = 'Invalid website'
+        result = 'Invalid website(Website does not have a job/internship posting). Please try again with a valid job posting URL'
     elif not is_valid_resume(resume_text) and not is_valid_website(website_text):
-        result = 'Both resume and website are invalid.'
+        result = 'Both resume and website are invalid. Please try again.'
     else:
         response = (prompt | _get_llm()).invoke({
             "website_data": website_text,
