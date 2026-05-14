@@ -1,6 +1,6 @@
 # 📧 Cold E-Mail Generator
 
-An AI-powered tool that generates personalized cold emails for job and internship applications. Just paste a job posting URL and upload your resume — the website does the rest. 
+An AI-powered tool that generates personalized cold emails for job and internship applications. Just paste a job posting URL and upload your resume, the website does the rest. 
 
 ---
 
@@ -10,7 +10,8 @@ An AI-powered tool that generates personalized cold emails for job and internshi
 2. **Upload your resume** (PDF format) — your skills and experience are extracted automatically
 3. **Click Generate** — a tailored cold email is crafted based on your resume and the job posting
 OpenAI's 20b parameter model has been used for email generation.
-Try it out : [Cold Email Generator](https://cold-email-gen.netlify.app/)
+
+**Try it out :** [Cold Email Generator](https://cold-email-gen.netlify.app/)
 ---
 
 ## Tech Stack
