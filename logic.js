@@ -25,4 +25,5 @@ async function output()
   document.getElementById("output").innerText = data.email;
   x.style.opacity = 0;
   x.style.zIndex = 0;
+  console.log("Full response:", JSON.stringify(data));
 }
