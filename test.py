@@ -14,12 +14,14 @@ _llm_instance = None
 def _get_llm():
     global _llm_instance
     if _llm_instance is None:
+        print("Initializing LLM instance...")
         _llm_instance = ChatGroq(
             temperature=0,
             groq_api_key=groq_key,
             model_name="openai/gpt-oss-20b",
             max_tokens=3000,
         )
+        print("LLM instance created successfully.")
     return _llm_instance
 
 
@@ -78,10 +80,13 @@ def extract_resume_data(source=None) -> str:
             text += page.extract_text() + '\n'
     else:
         return ''
+
     return text[:3000] if len(text) > 3000 else text
 
 
 def is_valid_resume(text: str) -> bool:
+    if not text:
+        return False
     keywords = ["experience", "skills", "education"]
     text_lower = text.lower()
     return all(keyword in text_lower for keyword in keywords)
@@ -126,19 +131,23 @@ def generate_email(website_url: str, resume_text: str) -> str:
     {resume_text}
     """)
     website_text = extract_website_data(website_url)
+    if not website_text.strip():
+        return 'Unable to extract any text from the website URL. Please verify the link and try again.'
+
     if not is_valid_resume(resume_text) and is_valid_website(website_text):
         result = 'Resume is invalid or not uploaded. Please upload a valid resume and try again.'
-    
     elif not is_valid_website(website_text) and is_valid_resume(resume_text):
-        result = 'Invalid website(Website does not have a job/internship posting). Please try again with a valid job posting URL'
+        result = 'Invalid website (website does not contain a valid job posting). Please try again with a proper job posting URL.'
     elif not is_valid_resume(resume_text) and not is_valid_website(website_text):
         result = 'Both resume and website are invalid. Please try again.'
     else:
+        print("Invoking llm")
         response = (prompt | _get_llm()).invoke({
             "website_data": website_text,
             "resume_text": resume_text
         })
         result = response.content
+        print(result[:100])
     return result
 
 
@@ -148,8 +157,14 @@ if __name__ == "__main__":
     job_posting_url = input("Enter the job posting URL: ")
     start = time.perf_counter()
     resume_text = extract_resume_data("C:/Users/AtifSha/Downloads/sample_resume.pdf")
-    website_text = extract_website_data(job_posting_url)
-    print()
-    print(generate_email(job_posting_url, resume_text))
+    print(groq_key)
+    llm = _get_llm()
+    response = llm.invoke("Say hello")
+    print(response.content)
+    print('\n')
+    #print(extract_website_data(job_posting_url))
+    a = generate_email(job_posting_url, resume_text)
+    print(a)
+    print(a == None)
     end = time.perf_counter()
     print("TIME TAKEN = ", end - start)
