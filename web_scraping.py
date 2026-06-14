@@ -45,8 +45,13 @@ def extract_website_data(job_posting_url: str) -> str:
     }
     )
 
-    for item in client.dataset(run['defaultDatasetId']).iterate_items():
-         return item.get("text", "")
+    if isinstance(run, dict):
+        dataset_id = run['defaultDatasetId']
+    else:
+        dataset_id = run.default_dataset_id
+
+    for item in client.dataset(dataset_id).iterate_items():
+        return item.get("text", "")
 
     return ""
 
