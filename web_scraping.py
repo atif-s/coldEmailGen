@@ -45,7 +45,7 @@ def extract_website_data(job_posting_url: str) -> str:
     }
     )
 
-    for item in client.dataset(run.default_dataset_id).iterate_items():
+    for item in client.dataset(run['defaultDatasetId']).iterate_items():
          return item.get("text", "")
 
     return ""
