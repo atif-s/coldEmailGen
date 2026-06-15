@@ -11,30 +11,10 @@ load_dotenv("keys.env")
 apify_key = os.getenv("APIFY_API_KEY")
 
 client = ApifyClient(apify_key)
-'''def fallback(text):
-    if len(text) < 1000:
-        return True
-    job_keywords = ['responsibility' , 'responsibilities' , 'experience' , 'education' , 'skills' , 'experience' , 'qualifications' , 'qualification']
-    if not any(k in text.lower() for k in job_keywords):
-        return True
-    js_fail = ['enable javascript' , 'login to continue']
-    if any(x in text.lower() for x in js_fail):
-        return True
-    return False'''
+
 
 def extract_website_data(job_posting_url: str) -> str:
-    '''headers = {
-            "User-Agent": "Mozilla/5.0"
-        }
-    response = requests.get(job_posting_url,headers = headers , timeout = 5)
-    response.raise_for_status()
-    doc = Document(response.text)
-    doc = doc.summary()
 
-    soup = BeautifulSoup(doc,"html.parser")
-    text = soup.get_text(separator = " " , strip = True)
-
-    if fallback(text):'''
     run = client.actor("aYG0l9s7dbB7j3gbS").call(
     run_input={
             "startUrls": [{"url": job_posting_url}],
@@ -42,6 +22,7 @@ def extract_website_data(job_posting_url: str) -> str:
         "maxCrawlPages": 1,
             "maxResults": 1,
             "htmlTransformer": "readableText"
+            "memory_mbytes"=2048
     }
     )
 
