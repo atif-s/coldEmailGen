@@ -22,7 +22,7 @@ def extract_website_data(job_posting_url: str) -> str:
         "maxCrawlPages": 1,
             "maxResults": 1,
             "htmlTransformer": "readableText"
-            "memory_mbytes"=2048
+            "memory_mbytes" : 2048
     }
     )
 
