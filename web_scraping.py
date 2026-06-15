@@ -17,14 +17,14 @@ def extract_website_data(job_posting_url: str) -> str:
 
     run = client.actor("aYG0l9s7dbB7j3gbS").call(
     run_input={
-            "startUrls": [{"url": job_posting_url}],
-                "maxCrawlDepth": 0,
+        "startUrls": [{"url": job_posting_url}],
+        "maxCrawlDepth": 0,
         "maxCrawlPages": 1,
-            "maxResults": 1,
-            "htmlTransformer": "readableText"
-            "memory_mbytes" : 2048
-    }
-    )
+        "maxResults": 1,
+        "htmlTransformer": "readableText"
+    },
+    memory_mbytes=2048
+)
 
     if isinstance(run, dict):
         dataset_id = run['defaultDatasetId']
