@@ -11,6 +11,12 @@ async function output()
     x.style.zIndex = 9999;
     x.style.opacity = 1;
 
+    const y = document.querySelector('#url');
+    y.disabled = true;
+
+    const z = document.querySelector('#resume');
+    z.disabled = true;
+
 
 
     x.innerText = 'Generating Email...';
@@ -23,7 +29,11 @@ async function output()
   const data = await response.json();
   console.log("Email received:", data.email);
   document.getElementById("output").innerText = data.email;
+
   x.style.opacity = 0;
   x.style.zIndex = 0;
+  y.disabled = false;
+  z.disabled = false;
+  
   console.log("Full response:", JSON.stringify(data));
 }
