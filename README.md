@@ -11,8 +11,13 @@ An AI-powered tool that generates personalized cold emails for job and internshi
 3. **Click Generate** — a tailored cold email is crafted based on your resume and the job posting
 OpenAI's 20b parameter model has been used for email generation.
 
-**Try it out :** [Cold Email Generator](https://cold-email-gen.netlify.app/)
+### Key Strengths
+- **Handles JS rendered job pages** : Standard AI tools can't browse dynamic pages (LinkedIn, Greenhouse, Lever)whereas this tool renders them like a browser and extracts content.
+- **Well Structured** : Job details are parsed into different fields before being passed to the LLM, so emails contain accurate information.
+- **Consistent output**
+  
 ---
+**Try it out :** [Cold Email Generator](https://cold-email-gen.netlify.app/)
 
 ## Tech Stack
 
