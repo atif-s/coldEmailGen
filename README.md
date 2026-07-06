@@ -14,10 +14,10 @@ OpenAI's 20b parameter model has been used for email generation.
 ### Key Strengths
 - **Handles JS rendered job pages** : Standard AI tools can't browse dynamic pages (LinkedIn, Greenhouse, Lever)whereas this tool renders them like a browser and extracts content.
 - **Well Structured** : Job details are parsed into different fields before being passed to the LLM, so emails contain accurate information.
-- **Consistent output**
+- **Consistent output** : No prompt engineering needed for reliably detailed emails.
   
 ---
-**Try it out :** [Cold Email Generator](https://cold-email-gen.netlify.app/)
+## **Try it out :** [Cold Email Generator](https://cold-email-gen.netlify.app/)
 
 ## Tech Stack
 
